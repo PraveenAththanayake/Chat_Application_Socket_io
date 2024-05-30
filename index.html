@@ -12,6 +12,15 @@
       const socket = io();
       socket.on("connect", () => {
         console.log("Connected to client");
+
+        //disconnect from server after 5 seconds
+        setTimeout(() => {
+          socket.disconnect();
+        }, 5000);
+      });
+
+      socket.on("disconnect", () => {
+        console.log("Disconnected from client");
       });
     </script>
   </body>
